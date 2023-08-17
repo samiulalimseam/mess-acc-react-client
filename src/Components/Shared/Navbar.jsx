@@ -1,4 +1,4 @@
-import { BsFillBellFill, BsSearch } from "react-icons/bs";
+import { BsBell, BsSearch } from "react-icons/bs";
 import {
   Avatar,
   Box,
@@ -12,7 +12,8 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <Box
+    <Box position={'relative'}
+    top={0}
       bg={"blackAlpha.900"}
       textColor={"white"}
       width={"full"}
@@ -32,7 +33,7 @@ const Navbar = () => {
           Beautiful Logo
         </Text>
         <Text
-        color={'teal.200'}
+          color={"teal.200"}
           p={1}
           width={"auto"}
           fontSize="3xs"
@@ -42,15 +43,17 @@ const Navbar = () => {
           Summer 2023
         </Text>
       </Box>
-      <Box w={"32%"} display={"flex"} justifyContent={"center"}>
-        <ButtonGroup isAttached>
-          <Button p={0} cursor={"text"} disabled>
-            <Input border={"none"} placeholder={`Search`} />
-          </Button>
-          <Button>
-            <BsSearch></BsSearch>
-          </Button>
-        </ButtonGroup>
+      <Box w={"32%"} display={"flex"} justifyContent={"center"} alignItems={'center'}>
+        <Box width={"100%"}>
+          <ButtonGroup width={"100%"} isAttached>
+            <Button  width={"80%"} p={0} cursor={"text"} disabled>
+              <Input border={"none"} placeholder={`Search`} />
+            </Button>
+            <Button  width={"20%"}>
+              <BsSearch></BsSearch>
+            </Button>
+          </ButtonGroup>
+        </Box>
       </Box>
       <Box
         w={"32%"}
@@ -59,11 +62,26 @@ const Navbar = () => {
         justifyContent={"right"}
         alignItems={"center"}
       >
-        <Box border={"1px solid lightGray"} borderRadius={"md"} p={1}>
-          <BsFillBellFill color={"white"} w={5} h={5}></BsFillBellFill>
-        </Box>
-        <WrapItem>
-          <Avatar size="sm" name="Samiul" src="" />{" "}
+        <Button
+          size={"sm"}
+          variant={"solid"}
+          bg={"gray.700"}
+          borderRadius={"md"}
+        >
+          <BsBell color={"white"} w={5} h={5}></BsBell>
+        </Button>
+        <WrapItem
+          borderLeftRadius={"lg"}
+          borderRightRadius={"2xl"}
+          bg={"gray.700"}
+          display={"flex"}
+          gap={2}
+          alignItems={"center"}
+        >
+          <Text marginLeft={2} fontSize={"xs"}>
+            Samiul Alim
+          </Text>
+          <Avatar size="sm" name="Samiul Alim" src="" />{" "}
         </WrapItem>
       </Box>
     </Box>
