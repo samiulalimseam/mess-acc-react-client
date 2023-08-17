@@ -1,21 +1,11 @@
 import React from "react";
 import {
-  MenuList,
-  MenuItem,
-  MenuButton,
-  Menu,
-  IconButton,
+ 
   Box,
   Button,
   Link as Chakralink,
 } from "@chakra-ui/react";
-import {
-  AddIcon,
-  EditIcon,
-  ExternalLinkIcon,
-  HamburgerIcon,
-  RepeatIcon,
-} from "@chakra-ui/icons";
+
 import {
   BsBagCheckFill,
   BsCardChecklist,
@@ -43,9 +33,9 @@ const Sidebar = () => {
   ];
   return (
     <Box
-      position={"relative"}
-      top={0}
-      bottom={0}
+    //   position={"relative"}
+    //   top={0}
+    //   bottom={0}
       width={"17%"}
       bg={"gray.50"}
       style={{ height: "100%" }}
