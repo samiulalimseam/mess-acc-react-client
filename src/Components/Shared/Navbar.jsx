@@ -12,7 +12,8 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <Box position={'sticky'}
+    <Box position={'fixed'}
+    zIndex={9999}
     top={0}
       bg={"blackAlpha.900"}
       textColor={"white"}

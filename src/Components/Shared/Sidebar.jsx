@@ -24,19 +24,27 @@ const Sidebar = () => {
     {
       label: "Dashboard",
       icon: <BsFillPieChartFill></BsFillPieChartFill>,
-      link: "/",
+      link: "/dashboard",
     },
     {
       label: "Members",
       icon: <BsPersonCheckFill></BsPersonCheckFill>,
-      link: "/",
+      link: "/members",
     },
-    { label: "Meal", icon: <PiBowlFoodFill></PiBowlFoodFill>, link: "/" },
-    { label: "Grocery", icon: <BsBagCheckFill></BsBagCheckFill>, link: "/" },
-    { label: "Tasks", icon: <BsCardChecklist></BsCardChecklist>, link: "/" },
+    { label: "Meal", icon: <PiBowlFoodFill></PiBowlFoodFill>, link: "/meal" },
+    {
+      label: "Grocery",
+      icon: <BsBagCheckFill></BsBagCheckFill>,
+      link: "/grocery",
+    },
+    {
+      label: "Tasks",
+      icon: <BsCardChecklist></BsCardChecklist>,
+      link: "/tasks",
+    },
   ];
   return (
-    <Box
+    <Box 
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"space-between"}
@@ -44,12 +52,12 @@ const Sidebar = () => {
       position={"sticky"}
       top={"56px"}
       style={{ width: "17%", height: "92vh" }}
-      bg={"gray.50"}
+      bg={"gray.100"}
       padding={2}
     >
       <Box
         display={"flex"}
-        gap={1}
+        gap={'1'}
         flexDirection={"column"}
         alignItems={"left"}
         justifyContent={"center"}
@@ -75,7 +83,7 @@ const Sidebar = () => {
           );
         })}
       </Box>
-      <Box display={'flex'} flexDirection={'column'} gap={1}>
+      <Box  display={"flex"} flexDirection={"column"} gap={1}>
         <Box>
           <LinkBox as="article" maxW="sm" p="5" borderWidth="1px" rounded="md">
             <Box as="time" dateTime="2021-01-15 15:30:00 +0000 UTC">
@@ -90,7 +98,15 @@ const Sidebar = () => {
           </LinkBox>
         </Box>
         <Link>
-          <Button alignItems={'center'} display={'flex'} gap={1} width={'full'} size={'sm'}><BsGearFill></BsGearFill>Settings</Button>
+          <Button
+            alignItems={"center"}
+            display={"flex"}
+            gap={1}
+            width={"full"}
+            size={"sm"}
+          >
+            <BsGearFill></BsGearFill>Settings
+          </Button>
         </Link>
       </Box>
     </Box>
