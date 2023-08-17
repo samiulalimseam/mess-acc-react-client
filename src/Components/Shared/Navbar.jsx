@@ -12,7 +12,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <Box position={'relative'}
+    <Box position={'sticky'}
     top={0}
       bg={"blackAlpha.900"}
       textColor={"white"}
@@ -40,7 +40,7 @@ const Navbar = () => {
           border={"1px solid white"}
           borderRadius={"md"}
         >
-          Summer 2023
+          Summer `23
         </Text>
       </Box>
       <Box w={"32%"} display={"flex"} justifyContent={"center"} alignItems={'center'}>
