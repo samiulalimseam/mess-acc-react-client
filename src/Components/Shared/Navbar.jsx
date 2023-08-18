@@ -51,10 +51,10 @@ const Navbar = () => {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader marginTop={12}>Create your account</DrawerHeader>
+            <DrawerHeader marginTop={12}>Profile</DrawerHeader>
 
             <DrawerBody marginTop={0}>
-              Hello World
+             
               <Profile></Profile>
             </DrawerBody>
 
