@@ -1,15 +1,21 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
+import { initialState, productReducer } from "../state/UserStates/Userreducer";
+import { actionTypes } from "../state/UserStates/actionTypes";
 const USER_CONTEXT = createContext();
 const UserProvider = ({ children }) => {
-  const [userData, setUserData] = useState();
+  
+
+  const [userState, dispatch] = useReducer(productReducer, initialState)
 
   useEffect(()=>{
-    fetch('https://jsonplaceholder.typicode.com/users')
+    dispatch({type: actionTypes.FETCHING_START})
+    fetch('https://random-data-api.com/api/v2/users?size=15&is_xml=true')
     .then(res=> res.json())
-    .then(data=> setUserData(data))
+    .then(data=> dispatch({type: actionTypes.FETCHING_SUCCESS, payload: data}))
+    .catch(()=> dispatch({type: actionTypes.FETCHING_ERROR}))
   },[])
   const value = {
-    userData,
+    userState,
   };
   return (
     <USER_CONTEXT.Provider value={value}>{children}</USER_CONTEXT.Provider>

@@ -95,7 +95,7 @@ const MealRate = () => {
           <Line type="natural" dataKey="avg" stroke="#8884d8" />
 
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis stroke="0"  />
           <Tooltip />
         </LineChart>
       </ResponsiveContainer>

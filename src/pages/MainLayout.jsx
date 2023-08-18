@@ -9,7 +9,7 @@ const MainLayout = () => {
       <Navbar></Navbar>
       <Flex marginTop={0}>
         <Sidebar></Sidebar>
-        <Box p={5} mx={"auto"} w={"100%"} marginTop={"60px"}>
+        <Box p={5} mx={"auto"} w={"100%"} >
           <Outlet></Outlet>
         </Box>
       </Flex>
