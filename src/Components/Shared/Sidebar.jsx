@@ -2,7 +2,6 @@ import React from "react";
 import {
   Box,
   Button,
-  Link as Chakralink,
   Heading,
   LinkBox,
   LinkOverlay,
@@ -17,7 +16,8 @@ import {
   BsPersonCheckFill,
 } from "react-icons/bs";
 import { PiBowlFoodFill } from "react-icons/pi";
-import { Link, Outlet, Link as RouterLink } from "react-router-dom";
+import {   Link as RouterLink } from "react-router-dom";
+import Profile from "../Profile/Profile";
 
 const Sidebar = () => {
   const sideBarItems = [
@@ -62,6 +62,7 @@ const Sidebar = () => {
         alignItems={"left"}
         justifyContent={"center"}
       >
+       
         {sideBarItems.map((item, i) => {
           return (
             <div key={`link_${i}`}>
@@ -97,7 +98,7 @@ const Sidebar = () => {
             </Text>
           </LinkBox>
         </Box>
-        <Link>
+        <RouterLink>
           <Button
             alignItems={"center"}
             display={"flex"}
@@ -107,7 +108,7 @@ const Sidebar = () => {
           >
             <BsGearFill></BsGearFill>Settings
           </Button>
-        </Link>
+        </RouterLink>
       </Box>
     </Box>
   );

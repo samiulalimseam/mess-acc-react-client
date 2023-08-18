@@ -4,17 +4,34 @@ import {
   Box,
   Button,
   ButtonGroup,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
   Input,
+  Popover,
+  PopoverTrigger,
   Text,
   WrapItem,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
+import Profile from "../Profile/Profile";
+import PopOverTrigger from "../PopOver/PopOverTrigger";
+import PopOver from "../PopOver/PopOver";
 
 const Navbar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+
   return (
-    <Box position={'fixed'}
-    zIndex={9999}
-    top={0}
+    <Box
+      position={"sticky"}
+      zIndex={9999}
+      top={0}
       bg={"blackAlpha.900"}
       textColor={"white"}
       width={"full"}
@@ -22,6 +39,33 @@ const Navbar = () => {
       p={2}
       justifyContent={"space-between"}
     >
+      <Box>
+        <Drawer
+          marginTop={10}
+          size={"md"}
+          isOpen={isOpen}
+          placement="right"
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader marginTop={12}>Create your account</DrawerHeader>
+
+            <DrawerBody marginTop={0}>
+              Hello World
+              <Profile></Profile>
+            </DrawerBody>
+
+            <DrawerFooter>
+              <Button variant="outline" mr={3} onClick={onClose}>
+                Close
+              </Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </Box>
       <Box
         w={"32%"}
         mx={2}
@@ -31,7 +75,7 @@ const Navbar = () => {
         alignItems={"center"}
       >
         <Text textTransform={"uppercase"} fontSize="2xl">
-          Beautiful Logo
+          Logo
         </Text>
         <Text
           color={"teal.200"}
@@ -44,13 +88,18 @@ const Navbar = () => {
           Summer `23
         </Text>
       </Box>
-      <Box w={"32%"} display={"flex"} justifyContent={"center"} alignItems={'center'}>
+      <Box
+        w={"32%"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
         <Box width={"100%"}>
           <ButtonGroup width={"100%"} isAttached>
-            <Button  width={"80%"} p={0} cursor={"text"} disabled>
+            <Button width={"80%"} p={0} cursor={"text"} disabled>
               <Input border={"none"} placeholder={`Search`} />
             </Button>
-            <Button  width={"20%"}>
+            <Button width={"20%"}>
               <BsSearch></BsSearch>
             </Button>
           </ButtonGroup>
@@ -63,15 +112,30 @@ const Navbar = () => {
         justifyContent={"right"}
         alignItems={"center"}
       >
-        <Button
-          size={"sm"}
-          variant={"solid"}
-          bg={"gray.700"}
-          borderRadius={"md"}
-        >
-          <BsBell color={"white"} w={5} h={5}></BsBell>
-        </Button>
+        <Popover placement="bottom">
+          <PopoverTrigger
+            size={"sm"}
+            variant={"solid"}
+            bg={"gray.700"}
+            borderRadius={"md"}
+          >
+            <Box bg={"gray.700"} p={1} borderRadius={"lg"} cursor={"pointer"}>
+              <BsBell color={"white"} w={5} h={5}></BsBell>
+            </Box>
+          </PopoverTrigger>
+
+          <PopOver></PopOver>
+        </Popover>
         <WrapItem
+          cursor={"pointer"}
+          ref={btnRef}
+          onClick={() => {
+            if (!isOpen) {
+              onOpen();
+            } else {
+              onClose();
+            }
+          }}
           borderLeftRadius={"lg"}
           borderRightRadius={"2xl"}
           bg={"gray.700"}
@@ -82,7 +146,8 @@ const Navbar = () => {
           <Text marginLeft={2} fontSize={"xs"}>
             Samiul Alim
           </Text>
-          <Avatar size="sm" name="Samiul Alim" src="" />{" "}
+
+          <Avatar size="sm" name="Samiul Alim" src="" />
         </WrapItem>
       </Box>
     </Box>

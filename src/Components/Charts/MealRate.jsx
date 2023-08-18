@@ -16,19 +16,19 @@ const MealRate = () => {
     { name: "Aug 1 ", avg: 40 },
     { name: "Aug 2 ", avg: 50 },
     { name: "Aug 3 ", avg: 21 },
-    { name: "Aug 4 ", avg: 10 },
+    { name: "Aug 4 ", avg: 70 },
     { name: "Aug 5 ", avg: 40 },
-    { name: "Aug 6 ", avg: 50 },
+    { name: "Aug 6 ", avg: 40 },
     { name: "Aug 7 ", avg: 21 },
     { name: "Aug 8 ", avg: 10 },
     { name: "Aug 9 ", avg: 40 },
-    { name: "Aug 10 ", avg: 50 },
+    { name: "Aug 10 ", avg: 77 },
     { name: "Aug 11 ", avg: 21 },
-    { name: "Aug 12 ", avg: 10 },
+    { name: "Aug 12 ", avg: 20 },
     { name: "Aug 13 ", avg: 40 },
-    { name: "Aug 14 ", avg: 50 },
-    { name: "Aug 15 ", avg: 21 },
-    { name: "Aug 16 ", avg: 10 },
+    { name: "Aug 14 ", avg: 40 },
+    { name: "Aug 15 ", avg: 51 },
+    { name: "Aug 16 ", avg: 50 },
   ];
   return (
     <Card w={"100%"} p={5} className="mealrate">
@@ -87,7 +87,7 @@ const MealRate = () => {
           </CardBody>
         </Card>
       </Box>
-      <ResponsiveContainer width={700} height={200}>
+      <ResponsiveContainer width={"100%"} height={200}>
         <LineChart
           data={data}
           margin={{ top: 5, right: 20, bottom: 5, left: 0 }}

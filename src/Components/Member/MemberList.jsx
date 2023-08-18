@@ -1,11 +1,14 @@
 import { Box } from "@chakra-ui/layout";
 import { Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/table";
 import React from "react";
+import { useUserData } from "../../context/UserProvider";
 
 const MemberList = () => {
-  return (
-    <Box borderRadius={'lg'}  border={'1px solid lightGray'} height={'3xl'}>
+const {userData} = useUserData();
+console.log(userData);
 
+  return (
+    <Box borderRadius={'lg'}  border={'1px solid lightGray'} height={'4xl'}>
     <TableContainer >
       <Table  variant="striped">
         <TableCaption>Imperial to metric conversion factors</TableCaption>
