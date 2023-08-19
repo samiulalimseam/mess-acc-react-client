@@ -11,6 +11,7 @@ import {
   IconButton,
   Image,
   Input,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
@@ -24,13 +25,30 @@ import { useUserData } from "../../Context/UserProvider";
 
 const Profile = () => {
   const { userProfileState } = useUserData();
-  const user = userProfileState.users;
+
+  const user = userProfileState?.users;
+  if (userProfileState.loading) {
+    return (
+      <div style={{ margin: "auto", width: "40px" }}>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        ></Spinner>
+      </div>
+    );
+  }
   return (
     <Card maxW="md">
       <CardHeader>
         <Flex spacing="4">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
-            <Avatar name={user.first_name + " " + user.last_name} src={user.avatar} />
+            <Avatar
+              name={user.first_name + " " + user.last_name}
+              src={user.avatar}
+            />
 
             <Box>
               <Heading size="sm">
@@ -50,7 +68,7 @@ const Profile = () => {
       <CardBody boxShadow={"md"}>
         <Text>Email: </Text> <Input disabled defaultValue={user.email}></Input>
         <Text>Phone:</Text>{" "}
-        <Input disabled defaultValue= {user.phone_number}></Input>
+        <Input disabled defaultValue={user.phone_number}></Input>
         <Text>Username: </Text>
         <Input disabled defaultValue={user.username}></Input>
         <Text>Hometown: </Text>

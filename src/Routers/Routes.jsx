@@ -4,6 +4,8 @@ import MainLayout from "../pages/MainLayOut";
 import Dashboard from "../pages/Dashboard";
 import Sidebar from "../Components/Shared/Sidebar";
 import MemberList from "../Components/Member/MemberList";
+import Meal from "../Components/Meal/Meal";
+import Tasks from "../Components/Tasks/Tasks";
 
 export const router = createBrowserRouter([
   {
@@ -27,7 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/meal",
-        element: <div>This is Meal</div>, 
+        element:<Meal></Meal>, 
        
       },
       {
@@ -37,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/tasks",
-        element: <div>This is Tasks</div>, 
+        element: <Tasks></Tasks>, 
        
       },
     ],
