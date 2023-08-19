@@ -32,7 +32,7 @@ export const optionReducer = (state = initialState, action) => {
         ...state,
         options: [
           ...state.options,
-          { name: state.options.length, conditions: [{}], customField: [{}] },
+          { name: state.options[state.options.length-1].name + 1, conditions: [{}], customField: [{}] },
         ],
       };
 
