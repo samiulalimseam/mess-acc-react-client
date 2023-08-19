@@ -6,3 +6,11 @@ export const addNewOption = (value)=> {
         payload: value
     }
 }
+
+export const deleteOption = (index)=> {
+   
+    return {
+        type: rActionTypes.DELETE_OPTION,
+        payload: index
+    }
+}

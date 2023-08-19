@@ -1,48 +1,52 @@
 import { rActionTypes } from "../reduxActionTypes/rActiontypes";
 
-
-   
-
 const initialState = {
-    test :'Test',
-    meals: [],
-    options:[  {
-        conditions:[{}],
-        customField: [{}]
-    }
-]
-}
+  test: "Test",
+  meals: [],
+  options: [{ name: 0, conditions: [{}], customField: [{}] }],
+};
 
 export const optionReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case rActionTypes.FETCHING_START:
-        return {
-          ...state,
-          laoding: true,
-          error: false,
-        };
-      case rActionTypes.FETCHING_SUCCESS:
-        return {
-          ...state,
-          laoding: false,
-          error: false,
-        };
-  
-      case rActionTypes.FETCHING_ERROR:
-        return {
-          ...state,
-          laoding: false,
-          error: true,
-        };
-      case rActionTypes.ADD_NEW_OPTIONS:
-        return {
-          ...state,
-          options: [...state.options,action.paylaod]
-        };
-  
-      default:
-        return state;
-    }
-  };
+  switch (action.type) {
+    case rActionTypes.FETCHING_START:
+      return {
+        ...state,
+        laoding: true,
+        error: false,
+      };
+    case rActionTypes.FETCHING_SUCCESS:
+      return {
+        ...state,
+        laoding: false,
+        error: false,
+      };
 
-export default  optionReducer;
+    case rActionTypes.FETCHING_ERROR:
+      return {
+        ...state,
+        laoding: false,
+        error: true,
+      };
+    case rActionTypes.ADD_NEW_OPTIONS:
+      return {
+        ...state,
+        options: [
+          ...state.options,
+          { name: state.options.length, conditions: [{}], customField: [{}] },
+        ],
+      };
+
+    case rActionTypes.DELETE_OPTION:
+      console.log(action.payload);
+
+      return {
+        ...state,
+        options: state.options.filter((option, i) => i !== action.payload),
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default optionReducer;
