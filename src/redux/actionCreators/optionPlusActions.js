@@ -14,3 +14,24 @@ export const deleteOption = (index)=> {
         payload: index
     }
 }
+export const changeName = (index, value)=> {
+   
+    return {
+        type: rActionTypes.DELETE_OPTION,
+        payload: {index: index, value: value}
+    }
+}
+export const addCustomField = (optionIndex,  key)=> {
+   
+    return {
+        type: rActionTypes.ADD_CUSTOMFIELD,
+        payload: {optionIndex: optionIndex, key: key}
+    }
+}
+export const deleteCustomField = (optionIndex, key)=> {
+   
+    return {
+        type: rActionTypes.DELETE_CUSTOMFIELD,
+        payload: {optionIndex: optionIndex, key: key}
+    }
+}
