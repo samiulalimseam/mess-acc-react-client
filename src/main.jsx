@@ -6,8 +6,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { RouterProvider } from "react-router";
 import { router } from "./Routers/Routes.jsx";
 import { Provider as ReactReduxProvider } from "react-redux";
-import UserProvider from "./Context/UserProvider.jsx";
 import store from "./redux/store.js";
+import UserProvider from "./context/UserProvider.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>

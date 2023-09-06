@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import MainLayout from './MainLayOut';
+import MainLayout from './MainLayout';
+
 const Home = () => {
  
     return (
