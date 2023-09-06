@@ -6,6 +6,7 @@ import Sidebar from "../Components/Shared/Sidebar";
 import MemberList from "../Components/Member/MemberList";
 import Meal from "../Components/Meal/Meal";
 import Tasks from "../Components/Tasks/Tasks";
+import Grocery from "../pages/Grocery";
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <div>This is Grocery</div>, 
+        element: <Grocery></Grocery>, 
        
       },
       {
