@@ -38,6 +38,11 @@ const Sidebar = () => {
       link: "/grocery",
     },
     {
+      label: "Chat",
+      icon: <BsBagCheckFill></BsBagCheckFill>,
+      link: "/chat",
+    },
+    {
       label: "Tasks",
       icon: <BsCardChecklist></BsCardChecklist>,
       link: "/tasks",

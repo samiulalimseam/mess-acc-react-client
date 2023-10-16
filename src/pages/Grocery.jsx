@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Flex, Text, Select, Input, Checkbox } from "@chakra-ui/react";
-import axios from "axios";
+
 
 const Grocery = () => {
   const [productData, setProductData] = useState(null);
@@ -12,7 +12,7 @@ const Grocery = () => {
     const apiUrl = `https://option-app-server-samiulalimseam.vercel.app/api/shopdata/${shopName}`;
 
     // Fetch data from the API
-    axios.get(apiUrl).then((response) => {
+    fetch(apiUrl).then((response) => {
       setProductData(response.data);
       // Set the default color based on the API data
       setSelectedColor(response.data.options[0].customField[1].defaultValue);

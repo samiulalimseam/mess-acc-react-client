@@ -27,6 +27,7 @@
     "react-router-dom": "^6.15.0",
     "recharts": "^2.7.3",
     "redux": "^4.2.1",
+    "socket.io-client": "^4.7.2",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {

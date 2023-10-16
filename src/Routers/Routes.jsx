@@ -7,6 +7,7 @@ import MemberList from "../Components/Member/MemberList";
 import Meal from "../Components/Meal/Meal";
 import Tasks from "../Components/Tasks/Tasks";
 import Grocery from "../pages/Grocery";
+import Chat from "../pages/Chat";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ export const router = createBrowserRouter([
       {
         path: "/grocery",
         element: <Grocery></Grocery>, 
+       
+      },
+      {
+        path: "/chat",
+        element: <Chat></Chat>, 
        
       },
       {
