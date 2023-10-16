@@ -1,13 +1,13 @@
 import { rActionTypes } from "../reduxActionTypes/rActiontypes";
 
 const initialState = {
-  test: "Test",
   meals: [],
   options: [
     {
-      key: "0asdZ2sadx",
+      name: "",
+      key: "0asdZ2sadxdddd",
       conditions: [{ key: "0asdZ2sa2" }],
-      customField: [{ key: "0asdZ2sad54" }],
+      customField: [{ key: "0asdZ2sad54", label:'' }],
     },
   ],
 };
@@ -39,9 +39,10 @@ export const optionReducer = (state = initialState, action) => {
         options: [
           ...state.options,
           {
+            name: "",
             key: action.payload,
-            conditions: [{ key: "0" }],
-            customField: [{ key: "0" }],
+            conditions: [{ key: `${state.options.length + 1}` }],
+            customField: [{ key: "0" ,label:''}],
           },
         ],
       };
@@ -53,45 +54,68 @@ export const optionReducer = (state = initialState, action) => {
         ...state,
         options: state.options.filter((option, i) => i !== action.payload),
       };
-    case rActionTypes.CHANGE_OPTION_INPUT_NAME:
+    case rActionTypes.CHANGE_OPTION_INPUT_NAME: {
+      const newOptions = [...state.options];
+      newOptions[action.payload.index].name = action.payload.value;
       return {
         ...state,
-        options: [
-          {
-            ...state.options[action.payload.index],
-            name: action.payload.value,
-          },
-        ],
+        options: newOptions,
       };
-    case rActionTypes.ADD_CUSTOMFIELD: {
-
-      const { optionIndex, key } = action.payload;
+    }
+    case rActionTypes.CUSTOM_FIELD_LABEL_NAME_CHANGE: {
+      console.log(rActionTypes.CUSTOM_FIELD_LABEL_NAME_CHANGE+'-working'+' payload- '+ JSON.stringify(action.payload));
       const newOptions = [...state.options];
-      newOptions[optionIndex] = {
-        ...newOptions[optionIndex],
-        customField: [...newOptions[optionIndex].customField, { key: key }],
+      const newCustomFieldArray =
+        newOptions[action.payload.optionsIndex].customField;
+        newCustomFieldArray[action.payload.customFieldIndex].label= action.payload.value;
+       
+      return {
+        ...state,
+        options: newOptions,
       };
-      
+    }
+    case rActionTypes.CUSTOM_FIELD_TYPE_CHANGE: {
+      console.log(rActionTypes.CUSTOM_FIELD_TYPE_CHANGE+'-working'+' payload- '+ JSON.stringify(action.payload));
+      const newOptions = [...state.options];
+      const newCustomFieldArray =
+        newOptions[action.payload.optionsIndex].customField;
+        newCustomFieldArray[action.payload.customFieldIndex].type= action.payload.value;
+       
       return {
         ...state,
         options: newOptions,
       };
     }
 
-      case rActionTypes.DELETE_CUSTOMFIELD: {
+    case rActionTypes.ADD_CUSTOMFIELD: {
+      const { optionIndex, key } = action.payload;
+      const newOptions = [...state.options];
+      newOptions[optionIndex] = {
+        ...newOptions[optionIndex],
+        customField: [...newOptions[optionIndex].customField, { key: key }],
+      };
 
-        const { optionIndex, key } = action.payload;
-        const newOptions = [...state.options];
-        newOptions[optionIndex] = {
-          ...newOptions[optionIndex],
-          customField: newOptions[optionIndex].customField.filter((item)=> item.key != key),
-        };
-        
-        return {
-          ...state,
-          options: newOptions,
-        };
-      }
+      return {
+        ...state,
+        options: newOptions,
+      };
+    }
+
+    case rActionTypes.DELETE_CUSTOMFIELD: {
+      const { optionIndex, key } = action.payload;
+      const newOptions = [...state.options];
+      newOptions[optionIndex] = {
+        ...newOptions[optionIndex],
+        customField: newOptions[optionIndex].customField.filter(
+          (item) => item.key != key
+        ),
+      };
+
+      return {
+        ...state,
+        options: newOptions,
+      };
+    }
 
     default:
       return state;

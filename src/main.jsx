@@ -8,13 +8,16 @@ import { router } from "./Routers/Routes.jsx";
 import { Provider as ReactReduxProvider } from "react-redux";
 import UserProvider from "./Context/UserProvider.jsx";
 import store from "./redux/store.js";
+import { Toaster } from "react-hot-toast";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
       <ReactReduxProvider store={store}>
         <UserProvider>
           <RouterProvider router={router}>
-            <App />
+           
+              <App />
+         
           </RouterProvider>
         </UserProvider>
       </ReactReduxProvider>

@@ -17,8 +17,22 @@ export const deleteOption = (index)=> {
 export const changeName = (index, value)=> {
    
     return {
-        type: rActionTypes.DELETE_OPTION,
+        type: rActionTypes.CHANGE_OPTION_INPUT_NAME,
         payload: {index: index, value: value}
+    }
+}
+export const changeCustomFieldLabel = (optionsIndex, customFieldIdex, value)=> {
+   
+    return {
+        type: rActionTypes.CUSTOM_FIELD_LABEL_NAME_CHANGE,
+        payload: {optionsIndex: optionsIndex, customFieldIndex:customFieldIdex, value: value}
+    }
+}
+export const changeCustomFieldType = (optionsIndex, customFieldIdex, value)=> {
+   
+    return {
+        type: rActionTypes.CUSTOM_FIELD_TYPE_CHANGE,
+        payload: {optionsIndex: optionsIndex, customFieldIndex:customFieldIdex, value: value}
     }
 }
 export const addCustomField = (optionIndex,  key)=> {
