@@ -9,7 +9,7 @@ import {
   initialState,
   userProfileReducer,
   userReducer,
-} from "../state/UserStates/Userreducer";
+} from "../state/UserStates/userReducer";
 import { actionTypes } from "../state/UserStates/actionTypes";
 const USER_CONTEXT = createContext();
 const UserProvider = ({ children }) => {

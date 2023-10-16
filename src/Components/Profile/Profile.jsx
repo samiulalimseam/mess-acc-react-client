@@ -21,7 +21,7 @@ import {
   BsFillStickiesFill,
   BsThreeDotsVertical,
 } from "react-icons/bs";
-import { useUserData } from "../../Context/UserProvider";
+import { useUserData } from "../../context/UserProvider";
 
 const Profile = () => {
   const { userProfileState } = useUserData();
