@@ -55,6 +55,18 @@ const MealRate = () => {
         </Card>
         <Card maxW={"xs"}>
           <CardBody>
+            <Text fontSize={"xs"} color={"gray"} fontStyle={""}>
+              Total Consumer
+            </Text>
+            <Divider />
+
+            <Text fontSize={"xl"} align={"center"} fontWeight={"light"}>
+              7
+            </Text>
+          </CardBody>
+        </Card>
+        <Card maxW={"xs"}>
+          <CardBody>
             <Text fontSize={"xs"} color={"gray"}>
               Maximum rate
             </Text>

@@ -16,10 +16,12 @@ import {
   BsPersonCheckFill,
 } from "react-icons/bs";
 import { PiBowlFoodFill } from "react-icons/pi";
-import {   Link as RouterLink } from "react-router-dom";
+import {   Link as RouterLink, useLocation } from "react-router-dom";
 import Profile from "../Profile/Profile";
 
 const Sidebar = () => {
+  const {pathname} = useLocation();
+  
   const sideBarItems = [
     {
       label: "Dashboard",
@@ -79,6 +81,9 @@ const Sidebar = () => {
                   size={"sm"}
                   justifyContent={"left"}
                   gap={3}
+                  _hover={{color:'white', bg: 'purple'}}
+                  color={item.link != pathname ? 'black':'white'}
+                  bg={item.link === pathname ? '#301934':'white'}
                   variant={"ghost"}
                 >
                   {item.icon}
