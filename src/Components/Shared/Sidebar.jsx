@@ -52,7 +52,7 @@ const Sidebar = () => {
   ];
   return (
     <Box 
-      display={"flex"}
+      display={["none","flex"]}
       flexDirection={"column"}
       justifyContent={"space-between"}
       className="sidebar"
