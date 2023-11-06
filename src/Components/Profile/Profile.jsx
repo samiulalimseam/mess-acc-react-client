@@ -46,7 +46,7 @@ const Profile = () => {
         <Flex spacing="4">
           <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
             <Avatar
-              name={user.first_name + " " + user.last_name}
+              name={user.first_name + "  " + user.last_name}
               src={user.avatar}
             />
 
@@ -67,7 +67,7 @@ const Profile = () => {
       </CardHeader>
       <CardBody boxShadow={"md"}>
         <Text>Email: </Text> <Input disabled defaultValue={user.email}></Input>
-        <Text>Phone:</Text>{" "}
+        <Text>Phone no:</Text>{" "}
         <Input disabled defaultValue={user.phone_number}></Input>
         <Text>Username: </Text>
         <Input disabled defaultValue={user.username}></Input>
