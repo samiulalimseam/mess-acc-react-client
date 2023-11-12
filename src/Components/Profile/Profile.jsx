@@ -66,7 +66,7 @@ const Profile = () => {
         </Flex>
       </CardHeader>
       <CardBody boxShadow={"md"}>
-        <Text>Email: </Text> <Input disabled defaultValue={user.email}></Input>
+        <Text>Email : </Text> <Input disabled defaultValue={user.email}></Input>
         <Text>Phone no:</Text>{" "}
         <Input disabled defaultValue={user.phone_number}></Input>
         <Text>Username: </Text>
